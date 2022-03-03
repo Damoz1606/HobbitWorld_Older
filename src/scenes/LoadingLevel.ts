@@ -6,6 +6,8 @@ export class LoadingLevel extends Scene {
     }
     
     preload(): void {
+        this.load.baseURL = 'assets/images/';
+        this.load.atlas('hobbit', 'sprites/hobbit/Hobbit-0.png', 'sprites/hobbit/Hobbit.json');
         // this.load.image("background", "assets/background.png");
         // this.load.image("ground", "assets/ground.png");
         // this.load.image("star", "assets/star.png");
@@ -28,6 +30,6 @@ export class LoadingLevel extends Scene {
     }
     
     create(): void {
-        // this.scene.start("Game");
+        this.scene.start("LevelOne");
     }
 }
