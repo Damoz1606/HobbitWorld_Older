@@ -1,7 +1,12 @@
-export class GameMainState {
+interface MainScreen {
+    game: Phaser.Game;
+    sizeChanged: () => void;
+}
+
+export class GameMainState implements MainScreen{
     private static _instance: GameMainState;
-    public game?: Phaser.Game;
-    public sizeChanged?: () => void;
+    game!: Phaser.Game;
+    sizeChanged!: () => void;
 
     private constructor() { }
 

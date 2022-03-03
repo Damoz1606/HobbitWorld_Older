@@ -4,7 +4,9 @@
     "description": "",
     "main": "webpack.config.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "cross-env NODE_ENV=development webpack serve",
+        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
     },
     "keywords": [],
     "author": "",
