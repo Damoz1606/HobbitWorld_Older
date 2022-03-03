@@ -1,7 +1,7 @@
 export class GameMainState {
     private static _instance: GameMainState;
-    private _game?: Phaser.Game;
-    private sizeChanged?: () => void;
+    public game?: Phaser.Game;
+    public sizeChanged?: () => void;
 
     private constructor() { }
 
