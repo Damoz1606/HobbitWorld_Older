@@ -1,98 +1,89 @@
 {
-    "textures": [{
-        "image": "SlimeBrown.png",
-        "format": "RGBA8888",
-        "size": {
-            "w": 64,
-            "h": 16
-        },
-        "scale": 1,
-        "frames": [{
-                "filename": "tile247",
-                "rotated": false,
-                "trimmed": false,
-                "sourceSize": {
-                    "w": 16,
-                    "h": 16
-                },
-                "spriteSourceSize": {
-                    "x": 0,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                },
-                "frame": {
-                    "x": 0,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                }
+    "frames": [{
+            "filename": "tile247",
+            "rotated": false,
+            "trimmed": false,
+            "sourceSize": {
+                "w": 16,
+                "h": 16
             },
-            {
-                "filename": "tile248",
-                "rotated": false,
-                "trimmed": false,
-                "sourceSize": {
-                    "w": 16,
-                    "h": 16
-                },
-                "spriteSourceSize": {
-                    "x": 0,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                },
-                "frame": {
-                    "x": 16,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
             },
-            {
-                "filename": "tile249",
-                "rotated": false,
-                "trimmed": false,
-                "sourceSize": {
-                    "w": 16,
-                    "h": 16
-                },
-                "spriteSourceSize": {
-                    "x": 0,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                },
-                "frame": {
-                    "x": 32,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                }
-            },
-            {
-                "filename": "tile250",
-                "rotated": false,
-                "trimmed": false,
-                "sourceSize": {
-                    "w": 16,
-                    "h": 16
-                },
-                "spriteSourceSize": {
-                    "x": 0,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                },
-                "frame": {
-                    "x": 48,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                }
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
             }
-        ]
-    }],
+        },
+        {
+            "filename": "tile248",
+            "rotated": false,
+            "trimmed": false,
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "frame": {
+                "x": 16,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            }
+        },
+        {
+            "filename": "tile249",
+            "rotated": false,
+            "trimmed": false,
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            }
+        },
+        {
+            "filename": "tile250",
+            "rotated": false,
+            "trimmed": false,
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            },
+            "frame": {
+                "x": 48,
+                "y": 0,
+                "w": 16,
+                "h": 16
+            }
+        }
+    ],
     "meta": {
         "app": "https://www.codeandweb.com/texturepacker",
         "version": "3.0",

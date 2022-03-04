@@ -21,7 +21,6 @@ export class MinorMinion extends Enemy {
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('minor-minion', {
                 prefix: 'tile0',
-                suffix: '.png',
                 start: 87,
                 end: 94
             }),
