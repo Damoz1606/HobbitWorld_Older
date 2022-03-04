@@ -26,6 +26,7 @@ export class Phatom extends Enemy {
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('minor-minion', {
                 prefix: 'tile',
+                suffix: '.png',
                 start: 183,
                 end: 190
             }),
