@@ -16,7 +16,7 @@ export enum EnemyVelocity {
     SlimeGreen = 50,
 }
 
-export enum EnemyAggressiveRadius {
+export enum EnemyAgressiveRadius {
     CryingBud = 100,
     CryingWaterBud = 100,
     MinorMinion = 50,

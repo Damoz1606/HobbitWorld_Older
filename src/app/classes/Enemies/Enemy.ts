@@ -4,6 +4,9 @@ import { Player } from "../Player/Player";
 
 export abstract class Enemy extends Character {
 
+    private agressiveRadius!:number;
+    private attackRadius!: number;
+
     constructor(
         scene: Phaser.Scene, 
         x: number, 
@@ -48,7 +51,7 @@ export abstract class Enemy extends Character {
         if (MathPhaser.Distance.BetweenPoints(
             { x: this.x, y: this.y },
             { x: this.target.x, y: this.target.y }
-        ) < this.target.width) {
+        ) < this.agressiveRadius) {
             this.getBody().setVelocityX(this.target.x - this.x);
             this.getBody().setVelocityY(this.target.y - this.y);
         } else {
@@ -56,5 +59,21 @@ export abstract class Enemy extends Character {
             this.getBody().setVelocityX(this.velocity.x) &&
             this.getBody().setVelocityY(this.velocity.y);
         }
+    }
+
+    protected getAgressiveRadius(): number {
+        return this.agressiveRadius;
+    }
+
+    protected setAgressiveRadius(agressiveRadius: number): void {
+        this.agressiveRadius = agressiveRadius;
+    }
+
+    protected getAttackRadius(): number {
+        return this.attackRadius;
+    }
+
+    protected setAttackRadius(attackRadius: number): void {
+        this.attackRadius = attackRadius;
     }
 }
