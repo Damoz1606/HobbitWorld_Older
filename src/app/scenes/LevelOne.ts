@@ -14,7 +14,7 @@ export class LevelOne extends Scene {
 
     create(): void {
         this.player = new Player(this, 100, 100, "hobbit");
-        this.enemy = EnemyFactory.create(this, 100, 100, EnemyType.CryingBud, this.player);
+        this.enemy = EnemyFactory.create(this, 200, 200, EnemyType.CryingBud, this.player);
         // this.scene.start("Game");
     }
 

@@ -34,7 +34,6 @@ export abstract class Enemy extends Character {
                 this.velocity.x = Math.abs(this.getBody().velocity.x)
             }
             if (this.getBody().blocked.right) {
-                
                 this.velocity.x = -Math.abs(this.getBody().velocity.x)
             }
             if (this.getBody().blocked.up) {
@@ -59,6 +58,7 @@ export abstract class Enemy extends Character {
             this.getBody().setVelocityX(this.velocity.x) &&
             this.getBody().setVelocityY(this.velocity.y);
         }
+        this.checkFlip();
     }
 
     protected getAgressiveRadius(): number {

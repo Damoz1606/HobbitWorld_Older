@@ -2,6 +2,9 @@ import { Character } from "../Character";
 
 export class Player extends Character {
 
+    private velocity = { x: 125, y: 125 };
+    private attackRadius = 100;
+
     private keyUp: Phaser.Input.Keyboard.Key;
     private keyDown: Phaser.Input.Keyboard.Key;
     private keyLeft: Phaser.Input.Keyboard.Key;
@@ -133,16 +136,16 @@ export class Player extends Character {
 
     actions(): void {
         if (this.keyUp?.isDown) {
-            this.getBody().setVelocityY(-100);
+            this.getBody().setVelocityY(-this.velocity.y);
         } else if (this.keyDown?.isDown) {
-            this.getBody().setVelocityY(100);
+            this.getBody().setVelocityY(this.velocity.y);
         } else if (this.keyLeft?.isDown) {
             this.getBody().setOffset(40, 20);
-            this.getBody().setVelocityX(-100);
+            this.getBody().setVelocityX(-this.velocity.x);
             this.checkFlip();
         } else if (this.keyRight?.isDown) {
             this.getBody().setOffset(20, 20);
-            this.getBody().setVelocityX(100);
+            this.getBody().setVelocityX(this.velocity.x);
             this.checkFlip();
         }
     }
