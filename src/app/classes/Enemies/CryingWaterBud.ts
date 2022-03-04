@@ -22,7 +22,6 @@ export class CryingWaterBud extends Enemy {
     }
 
     protected initAnimations(): void {
-        //87-94
         this.scene.anims.create({
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('minor-minion', {
