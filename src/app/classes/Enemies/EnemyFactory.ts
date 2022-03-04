@@ -26,7 +26,7 @@ export class EnemyFactory {
             case EnemyType.MinorMinion:
                 return new MinorMinion(scene, x, y, "minor-minion", target);
             case EnemyType.Phatom:
-                return new Phatom(scene, x, y, "phatom", target);
+                return new Phatom(scene, x, y, "phantom", target);
             case EnemyType.SlimeBrown:
                 return new SlimeBrown(scene, x, y, "slime-brown", target);
             case EnemyType.SlimeGreen:

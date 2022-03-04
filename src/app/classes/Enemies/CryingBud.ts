@@ -21,7 +21,7 @@ export class CryingBud extends Enemy {
     protected initAnimations(): void {
         this.scene.anims.create({
             key: 'walk',
-            frames: this.scene.anims.generateFrameNames('cryingbud', {
+            frames: this.scene.anims.generateFrameNames('crying-bud', {
                 prefix: 'tile',
                 start: 311,
                 end: 314
