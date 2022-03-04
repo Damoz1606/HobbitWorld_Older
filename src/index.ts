@@ -1,6 +1,6 @@
 import { Game } from "phaser";
 import { GameConfig } from "./config/config";
-import { GameMainState } from "./lib/GameMainState";
+import { GameMainState } from "./app/lib/GameMainState";
 
 document.title = "Hobbit World";
 

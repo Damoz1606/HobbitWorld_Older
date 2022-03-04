@@ -2,7 +2,8 @@ import { Physics, Scene } from "phaser";
 
 export abstract class Character extends Physics.Arcade.Sprite {
 
-    protected health!: number;
+    private health!: number;
+    protected abstract initAnimations(): void;
 
     constructor(
         scene: Scene, 

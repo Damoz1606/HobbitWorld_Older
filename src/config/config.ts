@@ -1,7 +1,7 @@
 import { Types } from "phaser";
-import { GameMainState } from "../lib/GameMainState";
-import { LevelOne } from "../scenes/LevelOne";
-import { LoadingLevel } from "../scenes/LoadingLevel";
+import { GameMainState } from "../app/lib/GameMainState";
+import { LevelOne } from "../app/scenes/LevelOne";
+import { LoadingLevel } from "../app/scenes/LoadingLevel";
 
 export const GameConfig: Types.Core.GameConfig = {
     title: "Hobbit World",
