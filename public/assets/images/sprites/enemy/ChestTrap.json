@@ -1,0 +1,83 @@
+{
+	"textures": [
+		{
+			"image": "ChestTrap.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 48,
+				"h": 16
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "tile659.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					}
+				},
+				{
+					"filename": "tile660.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 16,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					}
+				},
+				{
+					"filename": "tile661.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 32,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:dba782eee84316314af1ab7ec692447e:ac795a94633df9a69a6c59a3223db3a2:98b2a74975f4083c92125c27db42f519$"
+	}
+}
