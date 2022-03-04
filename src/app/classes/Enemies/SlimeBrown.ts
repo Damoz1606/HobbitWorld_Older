@@ -21,7 +21,7 @@ export class SlimeBrown extends Enemy {
         this.scene.anims.create({
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('slime-green', {
-                prefix: 'tile0',
+                prefix: 'tile',
                 suffix: '.png',
                 start: 247,
                 end: 250

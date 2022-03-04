@@ -22,7 +22,7 @@ export class CryingBud extends Enemy {
         this.scene.anims.create({
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('cryingbud', {
-                prefix: 'tile0',
+                prefix: 'tile',
                 suffix: '.png',
                 start: 311,
                 end: 314

@@ -8,7 +8,7 @@
         },
         "scale": 1,
         "frames": [{
-                "filename": "tile087.png",
+                "filename": "tile087",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
@@ -29,28 +29,7 @@
                 }
             },
             {
-                "filename": "tile088.png",
-                "rotated": false,
-                "trimmed": false,
-                "sourceSize": {
-                    "w": 16,
-                    "h": 16
-                },
-                "spriteSourceSize": {
-                    "x": 0,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                },
-                "frame": {
-                    "x": 16,
-                    "y": 0,
-                    "w": 16,
-                    "h": 16
-                }
-            },
-            {
-                "filename": "tile090.png",
+                "filename": "tile088",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
@@ -71,7 +50,28 @@
                 }
             },
             {
-                "filename": "tile089.png",
+                "filename": "tile090",
+                "rotated": false,
+                "trimmed": false,
+                "sourceSize": {
+                    "w": 16,
+                    "h": 16
+                },
+                "spriteSourceSize": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 16,
+                    "h": 16
+                },
+                "frame": {
+                    "x": 16,
+                    "y": 0,
+                    "w": 16,
+                    "h": 16
+                }
+            },
+            {
+                "filename": "tile089",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
@@ -92,7 +92,7 @@
                 }
             },
             {
-                "filename": "tile091.png",
+                "filename": "tile091",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
@@ -113,7 +113,7 @@
                 }
             },
             {
-                "filename": "tile092.png",
+                "filename": "tile092",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
@@ -134,7 +134,7 @@
                 }
             },
             {
-                "filename": "tile093.png",
+                "filename": "tile093",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
@@ -155,7 +155,7 @@
                 }
             },
             {
-                "filename": "tile094.png",
+                "filename": "tile094",
                 "rotated": false,
                 "trimmed": false,
                 "sourceSize": {
