@@ -22,8 +22,6 @@ export class Player extends Character {
         this.scale = 2;
         this.getBody().setSize(20, 20);
         this.getBody().setOffset(20, 20);
-
-        this.initAnimations();
     }
 
     initAnimations(): void {

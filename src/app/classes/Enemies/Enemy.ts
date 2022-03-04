@@ -2,7 +2,6 @@ import { Character } from "../Character";
 import { Player } from "../Player/Player";
 
 export abstract class Enemy extends Character {
-    // private target: Player;
 
     constructor(
         scene: Phaser.Scene, 

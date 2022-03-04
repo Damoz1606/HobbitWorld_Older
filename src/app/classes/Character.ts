@@ -4,6 +4,7 @@ export abstract class Character extends Physics.Arcade.Sprite {
 
     private health!: number;
     protected abstract initAnimations(): void;
+    public abstract update(): void;
 
     constructor(
         scene: Scene, 
@@ -20,6 +21,7 @@ export abstract class Character extends Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.getBody().setCollideWorldBounds(true);
+        this.initAnimations();
     }
 
     public getBody(): Physics.Arcade.Body {
