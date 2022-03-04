@@ -10,8 +10,8 @@ export class LoadingLevel extends Scene {
         this.load.atlas('hobbit', 'sprites/hobbit/Hobbit-0.png', 'sprites/hobbit/Hobbit.json');
         this.load.atlas('crying-bud', 'sprites/enemy/CryingBud.png', 'sprites/enemy/CryingBud.json');
         this.load.atlas('crying-water-bud', 'sprites/enemy/CryingWaterBud.png', 'sprites/enemy/CryingWaterBud.json');
-        this.load.atlas('minor-minion', 'sprites/enemy/minorMinion.png', 'sprites/enemy/minorMinion.json');
-        this.load.atlas('phantom', 'sprites/enemy/phatom.png', 'sprites/enemy/phatom.json');
+        this.load.atlas('minor-minion', 'sprites/enemy/MinorMinion.png', 'sprites/enemy/MinorMinion.json');
+        this.load.atlas('phantom', 'sprites/enemy/Phantom.png', 'sprites/enemy/Phantom.json');
         this.load.atlas('slime-brown', 'sprites/enemy/SlimeBrown.png', 'sprites/enemy/SlimeBrown.json');
         this.load.atlas('slime-green', 'sprites/enemy/SlimeGreen.png', 'sprites/enemy/SlimeGreen.json');
     }
