@@ -23,8 +23,8 @@ export class SlimeBrown extends Enemy {
             frames: this.scene.anims.generateFrameNames('slime-green', {
                 prefix: 'tile0',
                 suffix: '.png',
-                start: 251,
-                end: 254
+                start: 247,
+                end: 250
             }),
             frameRate: 10,
             repeat: -1

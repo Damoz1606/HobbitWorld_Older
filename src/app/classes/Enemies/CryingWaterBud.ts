@@ -27,8 +27,8 @@ export class CryingWaterBud extends Enemy {
             frames: this.scene.anims.generateFrameNames('minor-minion', {
                 prefix: 'tile0',
                 suffix: '.png',
-                start: 87,
-                end: 94
+                start: 315,
+                end: 318
             }),
             frameRate: 10,
             repeat: -1
