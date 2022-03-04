@@ -115,12 +115,10 @@ export class Player extends Character {
             this.keyRight.isDown) {
             this.anims.currentAnim.key !== 'run' && this.anims.stop();
             !this.anims.isPlaying && this.anims.play('run', true);
-        }
-        if (this.keyAttack?.isDown) {
+        } else if (this.keyAttack?.isDown) {
             this.anims.currentAnim.key !== 'attack' && this.anims.stop();
             !this.anims.isPlaying && this.anims.play('attack', true);
-        }
-        if (this.keyDefense?.isDown) {
+        } else if (this.keyDefense?.isDown) {
             this.anims.currentAnim.key !== 'defense' && this.anims.stop();
             !this.anims.isPlaying && this.anims.play('defense', true);
         }
@@ -129,10 +127,8 @@ export class Player extends Character {
 
     actions(): void {
         if (this.keyUp?.isDown) {
-            this.anims.stop();
             this.getBody().setVelocityY(-100);
         } else if (this.keyDown?.isDown) {
-            this.anims.stop();
             this.getBody().setVelocityY(100);
         } else if (this.keyLeft?.isDown) {
             this.getBody().setOffset(40, 20);
