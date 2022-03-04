@@ -2,19 +2,11 @@ import { Player } from "../Player/Player";
 import { CryingBud } from "./CryingBud";
 import { CryingWaterBud } from "./CryingWaterBud";
 import { Enemy } from "./Enemy";
+import { EnemyType } from "./EnemyType";
 import { MinorMinion } from "./MinorMinion";
 import { Phatom } from "./Phantom";
 import { SlimeBrown } from "./SlimeBrown";
 import { SlimeGreen } from "./SlimeGreen";
-
-export enum EnemyType {
-    CryingBud,
-    CryingWaterBud,
-    MinorMinion,
-    Phatom,
-    SlimeBrown,
-    SlimeGreen,
-}
 
 export class EnemyFactory {
     public static create(scene: Phaser.Scene, x: number, y: number, type: EnemyType, target: Player): Enemy {

@@ -10,12 +10,22 @@ export class CryingBud extends Enemy {
         texture: string,
         target: Player,
         frame?: string | number) {
-        super(scene, x, y, texture, target, frame);
+        super(scene, x, y, texture, target, { x: 100, y: 0 }, frame);
         this.scale = 2.25;
     }
 
     protected preUpdate(): void {
-        this.getBody().setVelocityX(200);
+        if (this.velocity) {
+            this.getBody().setVelocityX(this.velocity.x);
+            this.getBody().setVelocityY(this.velocity.y);
+        }
+        if(this.getBody().blocked.left) {
+            this.getBody().setOffset(0, 0);
+        } else if (this.getBody().blocked.right) {
+            this.getBody().setOffset(15, 0);
+        }
+        this.bounceHandler();
+        this.followTarget();
     }
 
     protected initAnimations(): void {
@@ -32,8 +42,20 @@ export class CryingBud extends Enemy {
         });
     }
 
-    public update(): void {
-        this.anims.play('walk', true);
+    update(): void {
+        this.animate();
+    }
+
+    animate(): void {
+        !this.anims.isPlaying && this.anims.play('walk', true);
+    }
+
+    public setMovementOrientation(horizontal: boolean) {
+        if (horizontal) {
+            this.velocity = { x: 100, y: 0 };
+        } else {
+            this.velocity = { x: 0, y: 100 };
+        }
     }
 
 }

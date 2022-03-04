@@ -1,7 +1,7 @@
 import { Scene } from "phaser";
 import { Enemy } from "../classes/Enemies/Enemy";
-import { EnemyFactory, EnemyType } from "../classes/Enemies/EnemyFactory";
-import { MinorMinion } from "../classes/Enemies/MinorMinion";
+import { EnemyFactory } from "../classes/Enemies/EnemyFactory";
+import { EnemyType } from "../classes/Enemies/EnemyType";
 import { Player } from "../classes/Player/Player";
 
 export class LevelOne extends Scene {

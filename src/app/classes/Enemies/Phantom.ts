@@ -9,7 +9,7 @@ export class Phatom extends Enemy {
         texture: string,
         target: Player,
         frame?: string | number) {
-        super(scene, x, y, texture, target, frame);
+        super(scene, x, y, texture, target, {x: 100, y: 0}, frame);
         this.scale = 2.25;
     }
 

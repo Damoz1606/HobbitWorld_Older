@@ -30,6 +30,7 @@ export class Player extends Character {
             key: 'idle',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - Idle',
+                suffix: '.png',
                 start: 1,
                 end: 4
             }),
@@ -39,6 +40,7 @@ export class Player extends Character {
             key: 'attack',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - attack',
+                suffix: '.png',
                 start: 1,
                 end: 17
             }),
@@ -48,6 +50,7 @@ export class Player extends Character {
             key: 'defense',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - block',
+                suffix: '.png',
                 start: 1,
                 end: 13
             }),
@@ -57,6 +60,7 @@ export class Player extends Character {
             key: 'death',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - death',
+                suffix: '.png',
                 start: 1,
                 end: 12
             }),
@@ -66,6 +70,7 @@ export class Player extends Character {
             key: 'hit',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - hit',
+                suffix: '.png',
                 start: 1,
                 end: 4
             }),
@@ -75,6 +80,7 @@ export class Player extends Character {
             key: 'jump',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - jumpt',
+                suffix: '.png',
                 start: 1,
                 end: 10
             }),
@@ -84,6 +90,7 @@ export class Player extends Character {
             key: 'run',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - run',
+                suffix: '.png',
                 start: 1,
                 end: 10
             }),
@@ -93,6 +100,7 @@ export class Player extends Character {
             key: 'stop',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - stop',
+                suffix: '.png',
                 start: 1,
                 end: 8
             }),

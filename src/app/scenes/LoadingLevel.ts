@@ -7,7 +7,7 @@ export class LoadingLevel extends Scene {
     
     preload(): void {
         this.load.baseURL = 'assets/images/';
-        this.load.atlas('hobbit', 'sprites/hobbit/Hobbit-0.png', 'sprites/hobbit/Hobbit.json');
+        this.load.atlas('hobbit', 'sprites/hobbit/Hobbit.png', 'sprites/hobbit/Hobbit.json');
         this.load.atlas('crying-bud', 'sprites/enemy/CryingBud.png', 'sprites/enemy/CryingBud.json');
         this.load.atlas('crying-water-bud', 'sprites/enemy/CryingWaterBud.png', 'sprites/enemy/CryingWaterBud.json');
         this.load.atlas('minor-minion', 'sprites/enemy/MinorMinion.png', 'sprites/enemy/MinorMinion.json');
