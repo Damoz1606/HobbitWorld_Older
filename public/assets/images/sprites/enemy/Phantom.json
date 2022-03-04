@@ -1,6 +1,6 @@
 {
-    "frames": {
-        "tile183": {
+    "frames": [{
+            "filename": "tile183.png",
             "frame": {
                 "x": 1,
                 "y": 1,
@@ -20,7 +20,8 @@
                 "h": 16
             }
         },
-        "tile184": {
+        {
+            "filename": "tile184.png",
             "frame": {
                 "x": 19,
                 "y": 1,
@@ -40,7 +41,8 @@
                 "h": 16
             }
         },
-        "tile185": {
+        {
+            "filename": "tile185.png",
             "frame": {
                 "x": 37,
                 "y": 1,
@@ -60,7 +62,8 @@
                 "h": 16
             }
         },
-        "tile186": {
+        {
+            "filename": "tile186.png",
             "frame": {
                 "x": 55,
                 "y": 1,
@@ -80,7 +83,8 @@
                 "h": 16
             }
         },
-        "tile187": {
+        {
+            "filename": "tile187.png",
             "frame": {
                 "x": 73,
                 "y": 1,
@@ -100,7 +104,8 @@
                 "h": 16
             }
         },
-        "tile188": {
+        {
+            "filename": "tile188.png",
             "frame": {
                 "x": 91,
                 "y": 1,
@@ -120,7 +125,8 @@
                 "h": 16
             }
         },
-        "tile189": {
+        {
+            "filename": "tile189.png",
             "frame": {
                 "x": 109,
                 "y": 1,
@@ -140,7 +146,8 @@
                 "h": 16
             }
         },
-        "tile190": {
+        {
+            "filename": "tile190.png",
             "frame": {
                 "x": 127,
                 "y": 1,
@@ -160,7 +167,7 @@
                 "h": 16
             }
         }
-    },
+    ],
     "meta": {
         "app": "http://www.codeandweb.com/texturepacker",
         "version": "1.0",
