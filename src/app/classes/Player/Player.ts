@@ -8,7 +8,6 @@ export class Player extends Character {
     private keyRight: Phaser.Input.Keyboard.Key;
     private keyAttack: Phaser.Input.Keyboard.Key;
     private keyDefense: Phaser.Input.Keyboard.Key;
-    private keyRun: Phaser.Input.Keyboard.Key;
 
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
         super(scene, x, y, texture, frame, 30);
@@ -19,44 +18,48 @@ export class Player extends Character {
         this.keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         this.keyAttack = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.keyDefense = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.CTRL);
-        this.keyRun = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
 
-        this.getBody().setSize(30, 30);
-        this.getBody().setOffset(8, 0);
+        this.scale = 2;
+        this.getBody().setSize(20, 20);
+        this.getBody().setOffset(20, 20);
 
         this.initAnimations();
     }
 
     initAnimations(): void {
-        const frameRate = 8;
+        const frameRate = 17;
         this.scene.anims.create({
             key: 'idle',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - Idle',
+                start: 1,
                 end: 4
             }),
-            frameRate: frameRate,
+            frameRate: 10,
         });
         this.scene.anims.create({
             key: 'attack',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - attack',
+                start: 1,
                 end: 17
             }),
-            frameRate: frameRate,
+            frameRate: 10,
         });
         this.scene.anims.create({
             key: 'defense',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - block',
+                start: 1,
                 end: 13
             }),
-            frameRate: frameRate,
+            frameRate: 10,
         });
         this.scene.anims.create({
             key: 'death',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - death',
+                start: 1,
                 end: 12
             }),
             frameRate: frameRate,
@@ -65,6 +68,7 @@ export class Player extends Character {
             key: 'hit',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - hit',
+                start: 1,
                 end: 4
             }),
             frameRate: frameRate,
@@ -73,6 +77,7 @@ export class Player extends Character {
             key: 'jump',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - jumpt',
+                start: 1,
                 end: 10
             }),
             frameRate: frameRate,
@@ -81,6 +86,7 @@ export class Player extends Character {
             key: 'run',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - run',
+                start: 1,
                 end: 10
             }),
             frameRate: frameRate,
@@ -89,18 +95,53 @@ export class Player extends Character {
             key: 'stop',
             frames: this.scene.anims.generateFrameNames('hobbit', {
                 prefix: 'Hobbit - stop',
+                start: 1,
                 end: 8
             }),
             frameRate: frameRate,
         });
+    }
 
-        // this.scene.anims.create({
-        //     key: 'defense',
-        //     frames: this.scene.anims.generateFrameNames('hobbit', {
-        //         prefix: 'Hobbit - block',
-        //         end: 13
-        //     }),
-        //     frameRate: frameRate,
-        // });
+    update(): void {
+        this.getBody().setVelocity(0);
+        this.actions();
+        this.animate();
+    }
+
+    animate(): void {
+        if (this.keyUp.isDown ||
+            this.keyDown.isDown ||
+            this.keyLeft.isDown ||
+            this.keyRight.isDown) {
+            this.anims.currentAnim.key !== 'run' && this.anims.stop();
+            !this.anims.isPlaying && this.anims.play('run', true);
+        }
+        if (this.keyAttack?.isDown) {
+            this.anims.currentAnim.key !== 'attack' && this.anims.stop();
+            !this.anims.isPlaying && this.anims.play('attack', true);
+        }
+        if (this.keyDefense?.isDown) {
+            this.anims.currentAnim.key !== 'defense' && this.anims.stop();
+            !this.anims.isPlaying && this.anims.play('defense', true);
+        }
+        !this.anims.isPlaying && this.anims.play('idle', true);
+    }
+
+    actions(): void {
+        if (this.keyUp?.isDown) {
+            this.anims.stop();
+            this.getBody().setVelocityY(-100);
+        } else if (this.keyDown?.isDown) {
+            this.anims.stop();
+            this.getBody().setVelocityY(100);
+        } else if (this.keyLeft?.isDown) {
+            this.getBody().setOffset(40, 20);
+            this.getBody().setVelocityX(-100);
+            this.checkFlip();
+        } else if (this.keyRight?.isDown) {
+            this.getBody().setOffset(20, 20);
+            this.getBody().setVelocityX(100);
+            this.checkFlip();
+        }
     }
 }

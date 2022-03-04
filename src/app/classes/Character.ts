@@ -62,9 +62,9 @@ export abstract class Character extends Physics.Arcade.Sprite {
 
     protected checkFlip(): void {
         if(this.getBody().velocity.x < 0) {
-            this.scaleX = -1;
+            this.scaleX = -1 * Math.abs(this.scaleX);
         } else {
-            this.scaleX = 1;
+            this.scaleX = Math.abs(this.scaleX);
         }
     }
 }
