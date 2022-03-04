@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"tile311.png": {
+		"tile627.png": {
 			"frame": {
 				"x": 1,
 				"y": 1,
@@ -20,7 +20,7 @@
 				"h": 16
 			}
 		},
-		"tile312.png": {
+		"tile628.png": {
 			"frame": {
 				"x": 19,
 				"y": 1,
@@ -40,29 +40,9 @@
 				"h": 16
 			}
 		},
-		"tile313.png": {
+		"tile629.png": {
 			"frame": {
 				"x": 37,
-				"y": 1,
-				"w": 16,
-				"h": 16
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 16,
-				"h": 16
-			},
-			"sourceSize": {
-				"w": 16,
-				"h": 16
-			}
-		},
-		"tile314.png": {
-			"frame": {
-				"x": 55,
 				"y": 1,
 				"w": 16,
 				"h": 16
@@ -87,7 +67,7 @@
 		"image": "spritesheet.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 72,
+			"w": 54,
 			"h": 18
 		},
 		"scale": "1"
