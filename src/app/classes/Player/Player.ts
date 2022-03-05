@@ -59,7 +59,7 @@ export class Player extends Character {
                 start: 1,
                 end: 17
             }),
-            frameRate: 10,
+            frameRate: 20,
         });
         this.scene.anims.create({
             key: 'defense',
