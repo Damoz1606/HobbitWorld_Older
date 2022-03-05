@@ -99,4 +99,8 @@ export abstract class Enemy extends Character {
             this.velocity = { x: 0, y: 100 };
         }
     }
+
+    public attackTarget() {
+        this.target.takeDamage(this.damage);
+    }
 }

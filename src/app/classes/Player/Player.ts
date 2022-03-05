@@ -168,6 +168,8 @@ export class Player extends Character {
     }
 
     public takeDamage(value: number): void {
+        this.tweens();
+        console.log("Help me!");
         this.setHealth(this.getHealth() - value);
         if (this.getHealth() <= 0) {
             this.scene.game.events.emit(PlayerEvent.DEATH);

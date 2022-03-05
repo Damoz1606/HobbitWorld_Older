@@ -19,6 +19,14 @@ export class CryingBud extends Enemy {
         this.setDamage(EnemyDamage.CryingBud);
         this.setAgressiveRadius(EnemyAgressiveRadius.CryingBud);
         this.setAttackRadius(EnemyAttackRadius.CryingBud);
+
+        this.scene.time.addEvent({
+            delay: 5000,
+            callback: () => {
+                this.getTarget().takeDamage(this.getDamage());
+            },
+            callbackScope: this,
+        });
     }
 
     protected preUpdate(): void {
@@ -59,7 +67,7 @@ export class CryingBud extends Enemy {
     }
 
     protected attackHandler(): void {
-        if(MathPhaser.Distance.BetweenPoints(
+        if (MathPhaser.Distance.BetweenPoints(
             { x: this.x, y: this.y },
             { x: this.getTarget().x, y: this.getTarget().y }
         ) <= this.getTarget().getAttackRadius()) {
