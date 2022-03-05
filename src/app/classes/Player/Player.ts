@@ -1,3 +1,4 @@
+import { PlayerEvent } from "../../lib/Event";
 import { Character } from "../Character";
 
 export class Player extends Character {
@@ -147,6 +148,15 @@ export class Player extends Character {
             this.getBody().setOffset(20, 20);
             this.getBody().setVelocityX(this.velocity.x);
             this.checkFlip();
+        } else if (this.keyAttack?.isDown) {
+            this.scene.game.events.emit(PlayerEvent.ATTACK);
+        }
+    }
+    
+    public getDamage(value: number): void {
+        this.setHealth(this.getHealth() - value);
+        if (this.getHealth() <= 0) {
+            this.scene.game.events.emit(PlayerEvent.DEATH);
         }
     }
 }
