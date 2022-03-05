@@ -7,6 +7,10 @@ export abstract class Enemy extends Character {
 
     private agressiveRadius!:number;
     private attackRadius!: number;
+    private damage!:number;
+
+    protected abstract preUpdate(): void;
+    protected abstract attackHandler(): void;
 
     constructor(
         scene: Phaser.Scene, 
@@ -17,12 +21,11 @@ export abstract class Enemy extends Character {
         protected velocity?: { x: number, y: number },
         frame?: string | number) {
         super(scene, x, y, texture, frame, 30);
-
         this.scene.game.events.on(PlayerEvent.ATTACK, this.attackHandler, this);
+        this.on('destroy', () => {
+            this.scene.game.events.removeListener(PlayerEvent.ATTACK, this.attackHandler);
+        });
     }
-
-    protected abstract preUpdate(): void;
-    protected abstract attackHandler(): void;
 
     public setTarget(target: Player): void {
         this.target = target;
@@ -79,6 +82,14 @@ export abstract class Enemy extends Character {
 
     protected setAttackRadius(attackRadius: number): void {
         this.attackRadius = attackRadius;
+    }
+
+    protected getDamage():number {
+        return this.damage;
+    }
+
+    protected setDamage(damage: number): void {
+        this.damage = damage;
     }
 
     public setMovementOrientation(horizontal: boolean) {

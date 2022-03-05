@@ -1,10 +1,19 @@
 import { PlayerEvent } from "../../lib/Event";
 import { Character } from "../Character";
 
+export enum PlayerData {
+    HEALTH = 100,
+    MAX_HEALTH = 100,
+    DAMAGE = 25,
+    VELOCITY = 125,
+    ATTACK_RADIUS = 100
+}
+
 export class Player extends Character {
 
-    private velocity = { x: 125, y: 125 };
-    private attackRadius = 100;
+    private velocity = { x: PlayerData.VELOCITY, y: PlayerData.VELOCITY };
+    private attackRadius = PlayerData.ATTACK_RADIUS;
+    private damage = PlayerData.DAMAGE;
 
     private keyUp: Phaser.Input.Keyboard.Key;
     private keyDown: Phaser.Input.Keyboard.Key;
@@ -14,7 +23,7 @@ export class Player extends Character {
     private keyDefense: Phaser.Input.Keyboard.Key;
 
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
-        super(scene, x, y, texture, frame, 30);
+        super(scene, x, y, texture, frame, PlayerData.HEALTH);
 
         this.keyUp = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         this.keyDown = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
@@ -153,10 +162,22 @@ export class Player extends Character {
         }
     }
     
-    public getDamage(value: number): void {
+    public takeDamage(value: number): void {
         this.setHealth(this.getHealth() - value);
         if (this.getHealth() <= 0) {
             this.scene.game.events.emit(PlayerEvent.DEATH);
         }
+    }
+
+    public getDamage() {
+        return this.damage;
+    }
+
+    public setDamage(damage: number) {
+        this.damage = this.damage;
+    }
+
+    public getAttackRadius(): number {
+        return this.attackRadius;
     }
 }

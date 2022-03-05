@@ -1,6 +1,7 @@
+import { Math as MathPhaser } from "phaser";
 import { Player } from "../Player/Player";
 import { Enemy } from "./Enemy";
-import { EnemyAgressiveRadius, EnemyAttackRadius, EnemyVelocity } from "./EnemyType";
+import { EnemyAgressiveRadius, EnemyAttackRadius, EnemyDamage, EnemyHealth, EnemyVelocity } from "./EnemyType";
 
 export class CryingBud extends Enemy {
 
@@ -13,11 +14,15 @@ export class CryingBud extends Enemy {
         frame?: string | number) {
         super(scene, x, y, texture, target, { x: EnemyVelocity.CryingBud, y: 0 }, frame);
         this.scale = 2.25;
+
+        this.setHealth(EnemyHealth.CryingBud);
+        this.setDamage(EnemyDamage.CryingBud);
         this.setAgressiveRadius(EnemyAgressiveRadius.CryingBud);
         this.setAttackRadius(EnemyAttackRadius.CryingBud);
     }
 
     protected preUpdate(): void {
+        this.animate();
         if (this.velocity) {
             this.getBody().setVelocityX(this.velocity.x);
             this.getBody().setVelocityY(this.velocity.y);
@@ -45,15 +50,29 @@ export class CryingBud extends Enemy {
         });
     }
 
-    update(): void {
+    public update(): void {
         this.animate();
     }
 
-    animate(): void {
+    private animate(): void {
         !this.anims.isPlaying && this.anims.play('walk', true);
     }
 
     protected attackHandler(): void {
+        if(MathPhaser.Distance.BetweenPoints(
+            { x: this.x, y: this.y },
+            { x: this.getTarget().x, y: this.getTarget().y }
+        ) <= this.getTarget().getAttackRadius()) {
+            this.takeDamage(this.getTarget().getDamage());
+            // this.getTarget().takeDamage(this.getDamage());
+        }
+    }
+
+    public takeDamage(value: number): void {
+        this.setHealth(this.getHealth() - value);
+        if (this.getHealth() <= 0) {
+            this.destroy();
+        }
     }
 
 }

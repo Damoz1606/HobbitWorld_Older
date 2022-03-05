@@ -37,4 +37,7 @@ export class CryingWaterBud extends Enemy {
 
     protected attackHandler(): void {
     }
+
+    public takeDamage(value: number): void {
+    }
 }

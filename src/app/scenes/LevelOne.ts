@@ -20,6 +20,6 @@ export class LevelOne extends Scene {
 
     update = () => {
         this.player.update();
-        this.enemy.update();
+        // this.enemy.update();
     }
 }

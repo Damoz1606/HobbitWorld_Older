@@ -37,4 +37,7 @@ export class SlimeGreen extends Enemy {
 
     protected attackHandler(): void {
     }
+
+    public takeDamage(value: number): void {
+    }
 }

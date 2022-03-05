@@ -33,3 +33,21 @@ export enum EnemyAttackRadius {
     SlimeBrown = 50,
     SlimeGreen = 50,
 }
+
+export enum EnemyDamage {
+    CryingBud = 25,
+    CryingWaterBud = 25,
+    MinorMinion = 25,
+    Phatom = 25,
+    SlimeBrown = 25,
+    SlimeGreen = 25,
+}
+
+export enum EnemyHealth {
+    CryingBud = 100,
+    CryingWaterBud = 100,
+    MinorMinion = 150,
+    Phatom = 100,
+    SlimeBrown = 50,
+    SlimeGreen = 50,
+}

@@ -3,8 +3,10 @@ import { Physics, Scene } from "phaser";
 export abstract class Character extends Physics.Arcade.Sprite {
 
     private health!: number;
+    
     protected abstract initAnimations(): void;
     public abstract update(): void;
+    public abstract takeDamage(value: number): void;
 
     constructor(
         scene: Scene, 
@@ -38,28 +40,6 @@ export abstract class Character extends Physics.Arcade.Sprite {
 
     public isDead(): boolean {
         return this.health <= 0;
-    }
-
-    public getDamage(value?: number): void {
-        this.scene.tweens.add({
-            targets: this,
-            duration: 100,
-            repeat: 3,
-            yoyo: true,
-            alpha: 0.5,
-            onStart: () => {
-                if (value) {
-                    this.setDamage(value);
-                }
-            },
-            onComplete: () => {
-                this.setAlpha(1);
-            }
-        });
-    }
-
-    private setDamage(value: number): void {
-        this.health = this.health - value;
     }
 
     protected checkFlip(): void {

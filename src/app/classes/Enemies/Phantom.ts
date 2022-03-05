@@ -37,4 +37,7 @@ export class Phatom extends Enemy {
 
     protected attackHandler(): void {
     }
+    
+    public takeDamage(value: number): void {
+    }
 }
