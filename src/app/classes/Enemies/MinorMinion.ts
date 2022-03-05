@@ -29,4 +29,7 @@ export class MinorMinion extends Enemy {
             repeat: -1
         });
     }
+
+    protected attackHandler(): void {
+    }
 }

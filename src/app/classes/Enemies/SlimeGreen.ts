@@ -34,4 +34,7 @@ export class SlimeGreen extends Enemy {
     public update(): void {
         !this.anims.isPlaying && this.anims.play('walk', true);
     }
+
+    protected attackHandler(): void {
+    }
 }

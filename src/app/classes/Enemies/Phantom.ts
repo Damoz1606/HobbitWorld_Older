@@ -34,4 +34,7 @@ export class Phatom extends Enemy {
             repeat: -1
         });
     }
+
+    protected attackHandler(): void {
+    }
 }

@@ -22,7 +22,7 @@ export class CryingBud extends Enemy {
             this.getBody().setVelocityX(this.velocity.x);
             this.getBody().setVelocityY(this.velocity.y);
         }
-        if(this.getBody().blocked.left) {
+        if (this.getBody().blocked.left) {
             this.getBody().setOffset(0, 0);
         } else if (this.getBody().blocked.right) {
             this.getBody().setOffset(15, 0);
@@ -53,12 +53,7 @@ export class CryingBud extends Enemy {
         !this.anims.isPlaying && this.anims.play('walk', true);
     }
 
-    public setMovementOrientation(horizontal: boolean) {
-        if (horizontal) {
-            this.velocity = { x: 100, y: 0 };
-        } else {
-            this.velocity = { x: 0, y: 100 };
-        }
+    protected attackHandler(): void {
     }
 
 }

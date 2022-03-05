@@ -1,4 +1,5 @@
 import { Math as MathPhaser} from "phaser";
+import { PlayerEvent } from "../../lib/Event";
 import { Character } from "../Character";
 import { Player } from "../Player/Player";
 
@@ -16,9 +17,12 @@ export abstract class Enemy extends Character {
         protected velocity?: { x: number, y: number },
         frame?: string | number) {
         super(scene, x, y, texture, frame, 30);
+
+        this.scene.game.events.on(PlayerEvent.ATTACK, this.attackHandler, this);
     }
 
     protected abstract preUpdate(): void;
+    protected abstract attackHandler(): void;
 
     public setTarget(target: Player): void {
         this.target = target;
@@ -75,5 +79,13 @@ export abstract class Enemy extends Character {
 
     protected setAttackRadius(attackRadius: number): void {
         this.attackRadius = attackRadius;
+    }
+
+    public setMovementOrientation(horizontal: boolean) {
+        if (horizontal) {
+            this.velocity = { x: 100, y: 0 };
+        } else {
+            this.velocity = { x: 0, y: 100 };
+        }
     }
 }
