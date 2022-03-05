@@ -22,6 +22,8 @@ export class Player extends Character {
     private keyAttack: Phaser.Input.Keyboard.Key;
     private keyDefense: Phaser.Input.Keyboard.Key;
 
+    private keyAttackCounter: number = 0;
+
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
         super(scene, x, y, texture, frame, PlayerData.HEALTH);
 
@@ -123,8 +125,8 @@ export class Player extends Character {
 
     update(): void {
         this.getBody().setVelocity(0);
-        this.actions();
         this.animate();
+        this.actions();
     }
 
     animate(): void {
@@ -134,7 +136,7 @@ export class Player extends Character {
             this.keyRight.isDown) {
             this.anims.currentAnim.key !== 'run' && this.anims.stop();
             !this.anims.isPlaying && this.anims.play('run', true);
-        } else if (this.keyAttack?.isDown) {
+        } else if (this.keyAttack?.isDown && this.keyAttackCounter === 0) {
             this.anims.currentAnim.key !== 'attack' && this.anims.stop();
             !this.anims.isPlaying && this.anims.play('attack', true);
         } else if (this.keyDefense?.isDown) {
@@ -157,11 +159,14 @@ export class Player extends Character {
             this.getBody().setOffset(20, 20);
             this.getBody().setVelocityX(this.velocity.x);
             this.checkFlip();
-        } else if (this.keyAttack?.isDown) {
+        } else if (this.keyAttack.isDown && this.keyAttackCounter === 0) {
             this.scene.game.events.emit(PlayerEvent.ATTACK);
+            this.keyAttackCounter = 1;
+        } else if (this.keyAttack.isUp) {
+            this.keyAttackCounter = 0;
         }
     }
-    
+
     public takeDamage(value: number): void {
         this.setHealth(this.getHealth() - value);
         if (this.getHealth() <= 0) {

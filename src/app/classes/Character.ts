@@ -3,15 +3,15 @@ import { Physics, Scene } from "phaser";
 export abstract class Character extends Physics.Arcade.Sprite {
 
     private health!: number;
-    
+
     protected abstract initAnimations(): void;
     public abstract update(): void;
     public abstract takeDamage(value: number): void;
 
     constructor(
-        scene: Scene, 
-        x:number,
-        y:number,
+        scene: Scene,
+        x: number,
+        y: number,
         texture: string,
         frame?: string | number,
         health?: number
@@ -24,6 +24,21 @@ export abstract class Character extends Physics.Arcade.Sprite {
         scene.physics.add.existing(this);
         this.getBody().setCollideWorldBounds(true);
         this.initAnimations();
+    }
+
+    protected tweens(): void {
+        this.scene.tweens.add({
+            targets: this,
+            duration: 100,
+            repeat: 3,
+            yoyo: true,
+            alpha: 0.25,
+            onStart: () => {
+            },
+            onComplete: () => {
+                this.setAlpha(1);
+            }
+        });
     }
 
     public getBody(): Physics.Arcade.Body {
@@ -43,7 +58,7 @@ export abstract class Character extends Physics.Arcade.Sprite {
     }
 
     protected checkFlip(): void {
-        if(this.getBody().velocity.x < 0) {
+        if (this.getBody().velocity.x < 0) {
             this.scaleX = -1 * Math.abs(this.scaleX);
         } else {
             this.scaleX = Math.abs(this.scaleX);

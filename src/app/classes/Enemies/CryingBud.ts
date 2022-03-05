@@ -63,6 +63,7 @@ export class CryingBud extends Enemy {
             { x: this.x, y: this.y },
             { x: this.getTarget().x, y: this.getTarget().y }
         ) <= this.getTarget().getAttackRadius()) {
+            this.tweens();
             this.takeDamage(this.getTarget().getDamage());
             // this.getTarget().takeDamage(this.getDamage());
         }
