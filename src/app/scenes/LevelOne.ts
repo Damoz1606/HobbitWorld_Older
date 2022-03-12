@@ -52,9 +52,11 @@ export class LevelOne extends Scene {
 
     private initPlayer():void {
         const spawnPoints = gameObjectToObjectPoints(
-            this.map.filterObjects("PlayerSpawn", (obj: any) => obj.type === "Spawn")
+            this.map.filterObjects("Spawn", (obj: any) => obj.name === "Spawn")
         );
-        this.player = new Player(this, spawnPoints[0].x, spawnPoints[0].y, "hobbit");
+        // console.log(spawnPoints[0]);
+        this.player = new Player(this, spawnPoints[0].x * 2, spawnPoints[0].y * 2, "hobbit");
+        // this.player = new Player(this, 100, 100, "hobbit");
     }
 
     private showDebugItems(): void {
