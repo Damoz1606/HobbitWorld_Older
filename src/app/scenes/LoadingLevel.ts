@@ -14,6 +14,9 @@ export class LoadingLevel extends Scene {
         this.load.atlas('phantom', 'sprites/enemy/Phantom.png', 'sprites/enemy/Phantom.json');
         this.load.atlas('slime-brown', 'sprites/enemy/SlimeBrown.png', 'sprites/enemy/SlimeBrown.json');
         this.load.atlas('slime-green', 'sprites/enemy/SlimeGreen.png', 'sprites/enemy/SlimeGreen.json');
+
+        this.load.image('base_tiles', 'tiles/Serene_Village_16x16.png');
+        this.load.tilemapTiledJSON('base_world', 'tiles/HobbitWorld.json');
     }
     
     create(): void {
