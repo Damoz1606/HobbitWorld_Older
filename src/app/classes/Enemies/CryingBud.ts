@@ -20,13 +20,13 @@ export class CryingBud extends Enemy {
         this.setAgressiveRadius(EnemyAgressiveRadius.CryingBud);
         this.setAttackRadius(EnemyAttackRadius.CryingBud);
 
-        this.scene.time.addEvent({
-            delay: 5000,
-            callback: () => {
-                this.getTarget().takeDamage(this.getDamage());
-            },
-            callbackScope: this,
-        });
+        // this.scene.time.addEvent({
+        //     delay: 5000,
+        //     callback: () => {
+        //         this.getTarget().takeDamage(this.getDamage());
+        //     },
+        //     callbackScope: this,
+        // });
     }
 
     protected preUpdate(): void {
@@ -40,7 +40,6 @@ export class CryingBud extends Enemy {
         } else if (this.getBody().blocked.right) {
             this.getBody().setOffset(15, 0);
         }
-        this.bounceHandler();
         this.followTarget();
     }
 
@@ -73,14 +72,16 @@ export class CryingBud extends Enemy {
         ) <= this.getTarget().getAttackRadius()) {
             this.tweens();
             this.takeDamage(this.getTarget().getDamage());
-            // this.getTarget().takeDamage(this.getDamage());
         }
     }
 
     public takeDamage(value: number): void {
         this.setHealth(this.getHealth() - value);
         if (this.getHealth() <= 0) {
-            this.destroy();
+            this.disableBody(true, true);
+            // this.scene.time.delayedCall(300, () => {
+            //     this.destroy();
+            // });
         }
     }
 
