@@ -20,13 +20,13 @@ export class CryingBud extends Enemy {
         this.setAgressiveRadius(EnemyAgressiveRadius.CryingBud);
         this.setAttackRadius(EnemyAttackRadius.CryingBud);
 
-        // this.scene.time.addEvent({
-        //     delay: 5000,
-        //     callback: () => {
-        //         this.getTarget().takeDamage(this.getDamage());
-        //     },
-        //     callbackScope: this,
-        // });
+        /* this.scene.time.addEvent({
+            delay: 5000,
+            callback: () => {
+                this.getTarget().takeDamage(this.getDamage());
+            },
+            callbackScope: this,
+        }); */
     }
 
     protected preUpdate(): void {

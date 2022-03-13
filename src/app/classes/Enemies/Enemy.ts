@@ -89,7 +89,7 @@ export abstract class Enemy extends Character {
                 this.velocity.y = -Math.abs(this.getBody().velocity.y)
             }
         }
-        this.checkFlip();
+        // this.checkFlip();
     }
 
     public setMovementOrientation(horizontal: boolean) {
