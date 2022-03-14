@@ -38,16 +38,17 @@ export class LevelOne extends Scene {
     private initMap(): void {
         this.map = this.make.tilemap({ key: "base_world" });
         this.tileset = this.map.addTilesetImage("Serene_Village_16x16", "base_tiles");
-        this.world = this.map.createLayer("WorldBorder", this.tileset, 0, 0).setScale(2);
-        this.ground = this.map.createLayer("Plain", this.tileset, 0, 0).setScale(2);
-        this.trees = this.map.createLayer("Trees", this.tileset, 0, 0).setScale(2);
-        this.border = this.map.createLayer("PlainBorder", this.tileset, 0, 0).setScale(2);
-        this.water = this.map.createLayer("Water", this.tileset, 0, 0).setScale(2);
+        this.world = this.map.createLayer("WorldBorder", this.tileset, 0, 0);
+        this.ground = this.map.createLayer("Plain", this.tileset, 0, 0);
+        this.trees = this.map.createLayer("Trees", this.tileset, 0, 0);
+        this.border = this.map.createLayer("PlainBorder", this.tileset, 0, 0);
+        this.water = this.map.createLayer("Water", this.tileset, 0, 0);
         this.physics.world.setBounds(0, 0, this.world.width, this.world.height);
 
         this.trees.setCollisionByProperty({ collision: true });
         this.border.setCollisionByProperty({ collision: true });
         this.world.setCollisionByProperty({ collision: true });
+        this.water.setCollisionByProperty({ collision: true });
         this.showDebugItems();
     }
 
@@ -55,9 +56,7 @@ export class LevelOne extends Scene {
         const spawnPoints = gameObjectToObjectPoints(
             this.map.filterObjects("Spawn", (obj: any) => obj.name === "Spawn")
         );
-        // console.log(spawnPoints[0]);
-        this.player = new Player(this, spawnPoints[0].x * 2, spawnPoints[0].y * 2, "hobbit");
-        // this.player = new Player(this, 100, 100, "hobbit");
+        this.player = new Player(this, spawnPoints[0].x, spawnPoints[0].y, "hobbit");
     }
 
     private initEnemies(): void {
@@ -68,25 +67,17 @@ export class LevelOne extends Scene {
             this.map.filterObjects("Enemies", (obj: any) => obj.name === "CryingBud" && obj.type === "Vertical")
         );
 
-        this.enemies = cryingBudHorizontal.map((enemyPoint: any) => EnemyFactory.create(this, enemyPoint.x * 2, enemyPoint.y * 2, EnemyType.CryingBud, this.player));
+        this.enemies = cryingBudHorizontal.map((enemyPoint: any) => EnemyFactory.create(this, enemyPoint.x, enemyPoint.y, EnemyType.CryingBud, this.player));
         this.enemies.concat(cryingBudVertical.map((enemyPoint: any) => {
-            const enemy = EnemyFactory.create(this, enemyPoint.x * 2, enemyPoint.y * 2, EnemyType.CryingBud, this.player);
+            const enemy = EnemyFactory.create(this, enemyPoint.x, enemyPoint.y, EnemyType.CryingBud, this.player);
             enemy.setMovementOrientation(false);
             return enemy;
         }));
 
-        this.physics.add.collider(this.enemies, this.enemies, (enemy1, enemy2) => {
-            (enemy1 as Enemy).bounce();
-        }, undefined, this);
-        this.physics.add.collider(this.enemies, this.trees, (enemyObject, treeObject) => {
-            (enemyObject as Enemy).bounce();
-        }, undefined, this);
-        this.physics.add.collider(this.enemies, this.border, (enemyObject, borderObject) => {
-            (enemyObject as Enemy).bounce();
-        }, undefined, this);
-        this.physics.add.collider(this.enemies, this.world, (enemyObject, worldObject) => {
-            (enemyObject as Enemy).bounce();
-        }, undefined, this);
+        this.physics.add.collider(this.enemies, this.enemies);
+        this.physics.add.collider(this.enemies, this.trees);
+        this.physics.add.collider(this.enemies, this.border);
+        this.physics.add.collider(this.enemies, this.world);
         this.physics.add.collider(this.player, this.enemies, (playerObject, enemyObject) => {
            (enemyObject as Enemy).attackTarget();
         }, undefined, this);
@@ -102,11 +93,19 @@ export class LevelOne extends Scene {
             tileColor: null,
             collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
         });
+        this.water.renderDebug(debugGraphics, {
+            tileColor: null,
+            collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
+        });
+        this.world.renderDebug(debugGraphics, {
+            tileColor: null,
+            collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
+        });
     }
 
     private initCamera(): void {
         this.cameras.main.setSize(this.game.scale.width, this.game.scale.height);
         this.cameras.main.startFollow(this.player, true, 0.09, 0.09);
-        this.cameras.main.setZoom(2);
+        this.cameras.main.setZoom(3);
     }
 }

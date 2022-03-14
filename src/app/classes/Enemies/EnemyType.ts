@@ -17,21 +17,21 @@ export enum EnemyVelocity {
 }
 
 export enum EnemyAgressiveRadius {
-    CryingBud = 100,
-    CryingWaterBud = 100,
-    MinorMinion = 50,
-    Phatom = 150,
-    SlimeBrown = 300,
-    SlimeGreen = 300,
+    CryingBud = 50,
+    CryingWaterBud = 50,
+    MinorMinion = 25,
+    Phatom = 75,
+    SlimeBrown = 150,
+    SlimeGreen = 150,
 }
 
 export enum EnemyAttackRadius {
-    CryingBud = 100,
-    CryingWaterBud = 100,
-    MinorMinion = 150,
-    Phatom = 100,
-    SlimeBrown = 50,
-    SlimeGreen = 50,
+    CryingBud = 50,
+    CryingWaterBud = 50,
+    MinorMinion = 75,
+    Phatom = 50,
+    SlimeBrown = 25,
+    SlimeGreen = 25,
 }
 
 export enum EnemyDamage {

@@ -47,7 +47,18 @@ export abstract class Enemy extends Character {
                 this.getBody().setVelocityX(this.velocity.x) &&
                 this.getBody().setVelocityY(this.velocity.y);
         }
-        this.checkFlip();
+    }
+
+    public bounce() {
+        if (this.getBody().blocked.left && this.velocity) {
+            this.velocity.x = Math.abs(this.velocity.x);
+        } else if (this.getBody().blocked.right && this.velocity) {
+            this.velocity.x = -Math.abs(this.velocity.x);
+        } else if (this.getBody().blocked.up && this.velocity) {
+            this.velocity.y = Math.abs(this.velocity.y);
+        } else if (this.getBody().blocked.down && this.velocity) {
+            this.velocity.y = -Math.abs(this.velocity.y);
+        }
     }
 
     protected getAgressiveRadius(): number {
@@ -72,24 +83,6 @@ export abstract class Enemy extends Character {
 
     public setDamage(damage: number): void {
         this.damage = damage;
-    }
-
-    public bounce() {
-        if (this.velocity) {
-            if (this.velocity.x < 0) {
-                this.velocity.x = Math.abs(this.getBody().velocity.x)
-            }
-            if (this.velocity.x > 0) {
-                this.velocity.x = -Math.abs(this.getBody().velocity.x)
-            }
-            if (this.velocity.y < 0) {
-                this.velocity.y = Math.abs(this.getBody().velocity.y)
-            }
-            if (this.velocity.y > 0) {
-                this.velocity.y = -Math.abs(this.getBody().velocity.y)
-            }
-        }
-        // this.checkFlip();
     }
 
     public setMovementOrientation(horizontal: boolean) {

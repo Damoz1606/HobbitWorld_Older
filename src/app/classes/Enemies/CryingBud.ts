@@ -13,7 +13,6 @@ export class CryingBud extends Enemy {
         target: Player,
         frame?: string | number) {
         super(scene, x, y, texture, target, { x: EnemyVelocity.CryingBud, y: 0 }, frame);
-        this.scale = 2.25;
 
         this.setHealth(EnemyHealth.CryingBud);
         this.setDamage(EnemyDamage.CryingBud);
@@ -31,16 +30,9 @@ export class CryingBud extends Enemy {
 
     protected preUpdate(): void {
         this.animate();
-        if (this.velocity) {
-            this.getBody().setVelocityX(this.velocity.x);
-            this.getBody().setVelocityY(this.velocity.y);
-        }
-        if (this.getBody().blocked.left) {
-            this.getBody().setOffset(0, 0);
-        } else if (this.getBody().blocked.right) {
-            this.getBody().setOffset(15, 0);
-        }
+        this.bounce();
         this.followTarget();
+        this.checkFlip();
     }
 
     protected initAnimations(): void {
@@ -82,6 +74,15 @@ export class CryingBud extends Enemy {
             // this.scene.time.delayedCall(300, () => {
             //     this.destroy();
             // });
+        }
+    }
+
+    protected checkFlip(): void {
+        super.checkFlip();
+        if (this.getBody().velocity.x < 0) {
+            this.getBody().setOffset(15, 0);
+        } else {
+            this.getBody().setOffset(0, 0);
         }
     }
 

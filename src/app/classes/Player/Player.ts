@@ -6,7 +6,7 @@ export enum PlayerData {
     MAX_HEALTH = 100,
     DAMAGE = 25,
     VELOCITY = 125,
-    ATTACK_RADIUS = 100
+    ATTACK_RADIUS = 50
 }
 
 export class Player extends Character {
@@ -34,7 +34,6 @@ export class Player extends Character {
         this.keyAttack = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.keyDefense = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.CTRL);
 
-        this.scale = 2;
         this.getBody().setSize(20, 20);
         this.getBody().setOffset(20, 20);
     }
